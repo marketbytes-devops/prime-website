@@ -1,8 +1,10 @@
+import Banner from "@/components/Ui/About/Banner";
+
 const AboutPage = () => {
     return (
-        <div>
-            <h1>AboutPage</h1>
-        </div>
+        <header className="mb-24">
+            <Banner />
+        </header>
     );
 };
 
