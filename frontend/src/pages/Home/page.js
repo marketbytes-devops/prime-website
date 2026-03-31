@@ -4,10 +4,10 @@ import Banner from "@/components/Ui/Home/Banner";
 const HomePage = () => {
     return (
         <>
-            <header className="mb-24">
+            <header className="mb-6 md:mb-24">
                 <Banner />
             </header>
-            <section className="mb-24">
+            <section className="mb-6 md:mb-24">
                 <AboutUs />
             </section>
         </>
