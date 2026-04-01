@@ -39,7 +39,7 @@ const Banner = () => {
                         <div className="flex flex-wrap gap-4 sm:gap-6 justify-center lg:justify-start">
                             <Link
                                 href="/about"
-                                className="flex items-center justify-center bg-red hover:bg-white hover:!text-red !text-white font-semibold px-8 py-4 rounded-[12px] transition-all duration-300 hover:shadow-[0_10px_20px_rgba(218,32,42,0.3)] leading-none whitespace-nowrap text-base sm:text-lg min-w-[200px] sm:min-w-0"
+                                className="flex items-center justify-center bg-red hover:bg-white hover:!text-red !text-white font-semibold px-6 py-4 rounded-[12px] transition-all duration-300 hover:shadow-[0_10px_20px_rgba(218,32,42,0.3)] leading-none whitespace-nowrap text-base sm:text-lg min-w-[200px] sm:min-w-0"
                             >
                                 See How We Innovate
                             </Link>
