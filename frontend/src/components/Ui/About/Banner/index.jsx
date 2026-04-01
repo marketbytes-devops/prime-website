@@ -15,17 +15,22 @@ const Banner = () => {
             <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16 py-10 md:py-16">
 
                 {/* ── Left: Image ─────────────────────────────── */}
-                <div className="flex-shrink-0 w-full lg:w-auto">
+                <div
+                    style={{
+                        flexShrink: 0,
+                        width: "350px",
+                        minWidth: "350px",
+                    }}
+                >
                     <Image
                         src={bannerImg}
                         alt="Prime Innovation industrial facility"
-                        width={446}
-                        height={431}
+                        width={400}
+                        height={400}
                         priority
                         style={{
-                            width: "100%",
-                            maxWidth: "446px",
-                            height: "auto",
+                            width: "390px",
+                            height: "400px",
                             borderRadius: "32px",
                             objectFit: "cover",
                             display: "block",
@@ -62,7 +67,6 @@ const Banner = () => {
                             lineHeight: "177%",
                             letterSpacing: "0",
                             color: "#000000",
-                            maxWidth: "753px",
                             margin: 0,
                             marginBottom: "28px",
                         }}
@@ -111,8 +115,8 @@ const Banner = () => {
                             display: "flex",
                             flexWrap: "wrap",
                             alignItems: "flex-start",
-                            gap: "0",
-                            maxWidth: "685px",
+                            justifyContent: "space-between",
+                            width: "100%",
                         }}
                     >
                         {stats.map((stat, index) => (
