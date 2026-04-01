@@ -19,21 +19,21 @@ const Certificates = () => {
                 {/* Certificate 1 */}
                 <div className="w-full md:w-[295px] h-[153px] rounded-[24px] border border-[#D1D1D1] bg-white flex items-center justify-center p-6 flex-shrink-0">
                     <div className="relative w-full h-full max-w-[120px] max-h-[120px]">
-                        <Image src={ISO1} alt="ISO Certification 9001:2015" fill className="object-contain" />
+                        <Image src={ISO1} alt="ISO Certification 9001:2015" fill className="object-contain" sizes="120px" />
                     </div>
                 </div>
 
                 {/* Certificate 2 */}
                 <div className="w-full md:w-[295px] h-[153px] rounded-[24px] border border-[#D1D1D1] bg-white flex items-center justify-center p-6 flex-shrink-0">
                     <div className="relative w-full h-full max-w-[120px] max-h-[120px]">
-                        <Image src={ISO2} alt="ISO/IEC Certification 17025:2017" fill className="object-contain" />
+                        <Image src={ISO2} alt="ISO/IEC Certification 17025:2017" fill className="object-contain" sizes="120px" />
                     </div>
                 </div>
 
                 {/* Certificate 3 */}
                 <div className="w-full md:w-[295px] h-[153px] rounded-[24px] border border-[#D1D1D1] bg-white flex items-center justify-center p-6 flex-shrink-0">
                     <div className="relative w-full h-full max-w-[120px] max-h-[120px]">
-                        <Image src={ISO3} alt="ISO Certification 45001:2018" fill className="object-contain" />
+                        <Image src={ISO3} alt="ISO Certification 45001:2018" fill className="object-contain" sizes="120px" />
                     </div>
                 </div>
             </div>

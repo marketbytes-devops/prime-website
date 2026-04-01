@@ -93,6 +93,7 @@ const AboutUs = () => {
                             fill
                             className="object-cover rounded-[32px]"
                             priority
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     </div>
                     <div className="grid grid-cols-3 sm:flex sm:flex-row items-center sm:items-stretch mt-4 md:mt-6 gap-y-4 sm:gap-0">

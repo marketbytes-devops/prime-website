@@ -59,6 +59,7 @@ const Navbar = () => {
                             height={70}
                             priority
                             className="object-contain"
+                            style={{ height: "auto" }}
                         />
                     </Link>
                 </div>
