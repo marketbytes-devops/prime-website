@@ -1,11 +1,71 @@
 "use client";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import aboutImg from "@/assets/images/Home/about-us.jpg";
+
+const Counter = ({ endValue, duration = 4000 }) => {
+    const [count, setCount] = useState(0);
+    const countRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const hasStarted = useRef(false);
+
+    useEffect(() => {
+        const currentRef = countRef.current;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && !hasStarted.current) {
+                    setIsVisible(true);
+                    hasStarted.current = true;
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (currentRef) {
+            observer.observe(currentRef);
+        }
+
+        return () => {
+            if (currentRef) {
+                observer.unobserve(currentRef);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isVisible) return;
+
+        let startTime = null;
+        const startValue = 0;
+        const targetValue = parseInt(endValue);
+
+        const animate = (currentTime) => {
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            const easeOutQuad = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+            const easedProgress = easeOutQuad(progress);
+            
+            setCount(Math.floor(easedProgress * (targetValue - startValue) + startValue));
+
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                setCount(targetValue);
+            }
+        };
+
+        requestAnimationFrame(animate);
+    }, [isVisible, endValue, duration]);
+
+    return <span ref={countRef}>{count}</span>;
+};
 
 const AboutUs = () => {
     return (
         <div className="container">
-            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 md:gap-8">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 md:gap-6">
                 <div className="lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left order-1 lg:order-2">
                     <p className="mb-2 md:mb-4 uppercase block">
                         About Us
@@ -38,17 +98,23 @@ const AboutUs = () => {
                     <div className="flex flex-col sm:flex-row items-center sm:items-stretch mt-4 md:mt-6 gap-y-4 sm:gap-0">
                         <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:pr-12">
                             <h4 className="mb-2 md:mb-4 max-w-[140px] leading-snug">Clients satisfaction</h4>
-                            <span className="text-black text-2xl md:text-6xl font-semibold tracking-tight">100<span className="text-red">%</span></span>
+                            <span className="text-black text-2xl md:text-7xl font-semibold tracking-tight">
+                                <Counter endValue={100} /><span className="text-red">%</span>
+                            </span>
                         </div>
                         <div className="hidden sm:block w-[2.5px] bg-gradient-to-b from-[#000000]/0 via-[#333333]/30 to-[#666666]/0" />
                         <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:px-12">
                             <h4 className="mb-2 md:mb-4 max-w-[140px] leading-snug">Clients worldwide</h4>
-                            <span className="text-black text-2xl md:text-6xl font-semibold tracking-tight">503<span className="text-red">+</span></span>
+                            <span className="text-black text-2xl md:text-7xl font-semibold tracking-tight">
+                                <Counter endValue={503} /><span className="text-red">+</span>
+                            </span>
                         </div>
                         <div className="hidden sm:block w-[2.5px] bg-gradient-to-b from-[#000000]/0 via-[#333333]/30 to-[#666666]/0" />
                         <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:pl-12">
                             <h4 className="mb-2 md:mb-4 max-w-[140px] leading-snug">Years of experience</h4>
-                            <span className="text-black text-2xl md:text-6xl font-semibold tracking-tight">25<span className="text-red">+</span></span>
+                            <span className="text-black text-2xl md:text-7xl font-semibold tracking-tight">
+                                <Counter endValue={25} /><span className="text-red">+</span>
+                            </span>
                         </div>
                     </div>
                 </div>
