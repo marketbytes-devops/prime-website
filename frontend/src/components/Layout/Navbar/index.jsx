@@ -88,7 +88,7 @@ const Navbar = () => {
                             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
                         </svg>
                     </div>
-                    <button className="flex items-center justify-center bg-red hover:bg-blue text-white font-semibold px-6 py-4 rounded-full transition-all duration-300 hover:shadow-md leading-none whitespace-nowrap">
+                    <button className="flex items-center justify-center bg-red hover:bg-blue text-white font-[600] px-6 py-4 rounded-full transition-all duration-300 hover:shadow-md leading-none whitespace-nowrap">
                         Get A Quote
                     </button>
                 </div>

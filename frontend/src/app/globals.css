@@ -193,14 +193,13 @@ li {
 
 @media (min-width: 1024px) {
   .container {
-    width: 92%;
+    width: 90%;
   }
 }
 
 @media (min-width: 1440px) {
   .container {
-    width: 90%;
-    max-width: 1600px;
+    width: 85%;
   }
 }
 

@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "title": "Calibration",
+    "icon": "MdSensors",
+    "description": "Benefit from our advanced technology and expert team for reliable, accurate calibration services across all industries.",
+    "slug": "calibration"
+  },
+  {
+    "id": 2,
+    "title": "Contracting",
+    "icon": "MdAssignment",
+    "description": "At Prime Contracting, we turn your construction dreams into reality.",
+    "slug": "contracting"
+  },
+  {
+    "id": 3,
+    "title": "Fabrication",
+    "icon": "MdConstruction",
+    "description": "Specializing in light to medium structural fabrication with cutting-edge technology and unmatched precision, we bring your project to life with quality and efficiency.",
+    "slug": "fabrication"
+  },
+  {
+    "id": 4,
+    "title": "Maintenance",
+    "icon": "MdHandyman",
+    "description": "We offer high-quality industrial maintenance services to ensure your facilities and equipment remain reliable and efficient.",
+    "slug": "maintenance"
+  }
+]

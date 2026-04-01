@@ -43,10 +43,10 @@ const Counter = ({ endValue, duration = 4000 }) => {
             if (!startTime) startTime = currentTime;
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             const easeOutQuad = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
             const easedProgress = easeOutQuad(progress);
-            
+
             setCount(Math.floor(easedProgress * (targetValue - startValue) + startValue));
 
             if (progress < 1) {
@@ -70,10 +70,10 @@ const AboutUs = () => {
                     <p className="mb-2 md:mb-4 uppercase block">
                         About Us
                     </p>
-                    <h2 className="mb-4 md:mb-6">
+                    <h2 className="mb-2 md:mb-6">
                         Excellence in Every Endeavor
                     </h2>
-                    <div className="space-y-4 mb-4 md:mb-6 text-gray max-w-xl">
+                    <div className="space-y-2 md:space-y-4 mb-4 md:mb-6 max-w-xl">
                         <p>
                             At Prime Group, our journey began with a vision to redefine industry standards through innovation, dedication, and excellence. Over the years, we've expanded our horizons, growing from a small enterprise into a global leader across diverse sectors.
                         </p>
@@ -81,12 +81,12 @@ const AboutUs = () => {
                             Our story is one of continuous evolution, driven by a commitment to delivering unparalleled quality and customer satisfaction.
                         </p>
                     </div>
-                    <button className="border-2 border-red text-red font-[600] px-6 py-4 rounded-full hover:bg-red hover:text-white transition-all duration-300">
+                    <button className="border-2 border-black hover:border-red text-red font-[600] px-6 py-4 rounded-full hover:bg-red hover:text-white transition-all duration-300">
                         See How we Innovate
                     </button>
                 </div>
-                <div className="lg:w-1/2 w-full order-1 lg:order-2">
-                    <div className="relative w-full aspect-[16/10] sm:aspect-square md:aspect-[16/6] rounded-[32px] overflow-hidden shadow-2xl mb-4 md:mb-6">
+                <div className="lg:w-1/2 w-full order-1 lg:order-2 mt-2 md:mt-0">
+                    <div className="relative w-full aspect-[16/10] sm:aspect-square md:aspect-[16/6] rounded-[32px] overflow-hidden shadow mb-4 md:mb-6">
                         <Image
                             src={aboutImg}
                             alt="Excellence in Every Endeavor"
@@ -95,24 +95,24 @@ const AboutUs = () => {
                             priority
                         />
                     </div>
-                    <div className="flex flex-col sm:flex-row items-center sm:items-stretch mt-4 md:mt-6 gap-y-4 sm:gap-0">
+                    <div className="grid grid-cols-3 sm:flex sm:flex-row items-center sm:items-stretch mt-4 md:mt-6 gap-y-4 sm:gap-0">
                         <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:pr-12">
-                            <h4 className="mb-2 md:mb-4 max-w-[140px] leading-snug">Clients satisfaction</h4>
-                            <span className="text-black text-2xl md:text-7xl font-semibold tracking-tight">
+                            <h4 className="mb-1 md:mb-4 sm:max-w-[140px] leading-tight text-[11px] sm:text-lg">Clients satisfaction</h4>
+                            <span className="text-black text-xl sm:text-2xl md:text-7xl font-semibold tracking-tight">
                                 <Counter endValue={100} /><span className="text-red">%</span>
                             </span>
                         </div>
                         <div className="hidden sm:block w-[2.5px] bg-gradient-to-b from-[#000000]/0 via-[#333333]/30 to-[#666666]/0" />
                         <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:px-12">
-                            <h4 className="mb-2 md:mb-4 max-w-[140px] leading-snug">Clients worldwide</h4>
-                            <span className="text-black text-2xl md:text-7xl font-semibold tracking-tight">
+                            <h4 className="mb-1 md:mb-4 sm:max-w-[140px] leading-tight text-[11px] sm:text-lg">Clients worldwide</h4>
+                            <span className="text-black text-xl sm:text-2xl md:text-7xl font-semibold tracking-tight">
                                 <Counter endValue={503} /><span className="text-red">+</span>
                             </span>
                         </div>
                         <div className="hidden sm:block w-[2.5px] bg-gradient-to-b from-[#000000]/0 via-[#333333]/30 to-[#666666]/0" />
                         <div className="flex flex-col items-center sm:items-start text-center sm:text-left sm:pl-12">
-                            <h4 className="mb-2 md:mb-4 max-w-[140px] leading-snug">Years of experience</h4>
-                            <span className="text-black text-2xl md:text-7xl font-semibold tracking-tight">
+                            <h4 className="mb-1 md:mb-4 sm:max-w-[140px] leading-tight text-[11px] sm:text-lg">Years experience</h4>
+                            <span className="text-black text-xl sm:text-2xl md:text-7xl font-semibold tracking-tight">
                                 <Counter endValue={25} /><span className="text-red">+</span>
                             </span>
                         </div>
