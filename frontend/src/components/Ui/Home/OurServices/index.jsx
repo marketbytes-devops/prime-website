@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import * as MdIcons from "react-icons/md";
 import servicesData from "@/data/services.json";
-import Link from "next/link";
 
 const OurServices = () => {
     const settings = {
