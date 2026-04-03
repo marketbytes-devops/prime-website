@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "HOW SMART LOGISTICS KEEPS SAUDI PROJECTS SUPPLIED ON TIME",
+        "date": "26/01/2026",
+        "image": "/assets/images/Blog/blog-1.jpg",
+        "slug": "smart-logistics-saudi-projects"
+    },
+    {
+        "id": 2,
+        "title": "PRECISION CALIBRATION: THE CORNERSTONE OF QUALITY CONTROL",
+        "date": "15/02/2026",
+        "image": "/assets/images/Blog/blog-2.jpg",
+        "slug": "precision-calibration-cornerstone"
+    },
+    {
+        "id": 3,
+        "title": "INDUSTRIAL SAFETY STANDARDS IN 2026: WHAT YOU NEED TO KNOW",
+        "date": "05/03/2026",
+        "image": "/assets/images/Blog/blog-3.jpg",
+        "slug": "industrial-safety-standards-2026"
+    }
+]

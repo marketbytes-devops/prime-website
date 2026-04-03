@@ -8,6 +8,7 @@ import product1 from "@/assets/images/Products/Product-1.jpg";
 import product2 from "@/assets/images/Products/Product-2.jpg";
 import product3 from "@/assets/images/Products/Product-3.jpg";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { motion, AnimatePresence } from "framer-motion";
 
 const SampleNextArrow = (props) => {
     const { onClick } = props;
@@ -36,12 +37,28 @@ const SamplePrevArrow = (props) => {
 const OurProducts = () => {
     const [activeTab, setActiveTab] = useState("Safety");
 
-    const products = [
-        { id: 1, image: product1, title: "3M Protecta Fall Protection" },
-        { id: 2, image: product2, title: "3M Protecta Fall Protection" },
-        { id: 3, image: product3, title: "3M Protecta Fall Protection" },
-        { id: 4, image: product1, title: "3M Protecta Fall Protection" },
-    ];
+    const categoryProducts = {
+        Safety: [
+            { id: 1, image: product1, title: "3M Protecta Fall Protection" },
+            { id: 2, image: product2, title: "3M Protecta Fall Protection" },
+            { id: 3, image: product3, title: "3M Protecta Fall Protection" },
+            { id: 4, image: product1, title: "3M Protecta Fall Protection" },
+        ],
+        Electrical: [
+            { id: 5, image: product3, title: "Insulated Rubber Gloves" },
+            { id: 6, image: product2, title: "Voltage Detectors" },
+            { id: 7, image: product1, title: "Arc Flash Protection Suit" },
+            { id: 8, image: product3, title: "Electrical Safety Mats" },
+        ],
+        Lifelines: [
+            { id: 9, image: product2, title: "Horizontal Lifeline Systems" },
+            { id: 10, image: product1, title: "Retractable Lifelines (SRL)" },
+            { id: 11, image: product3, title: "Vertical Lifeline Systems" },
+            { id: 12, image: product2, title: "Anchor Point Connectors" },
+        ],
+    };
+
+    const activeProducts = categoryProducts[activeTab];
 
     const settings = {
         dots: false,
@@ -78,51 +95,52 @@ const OurProducts = () => {
                     </p>
                 </div>
                 <div className="flex items-center justify-center lg:justify-end gap-2 p-2 bg-red rounded-[12px] h-fit w-full lg:w-auto">
-                    <button
-                        onClick={() => setActiveTab("Safety")}
-                        className={`flex-1 lg:flex-none px-4 sm:px-8 py-2.5 rounded-[10px] font-semibold text-sm transition-all duration-300 ${activeTab === "Safety" ? "bg-[#2B3990] text-white" : "bg-white text-black border border-red"}`}
-                    >
-                        Safety
-                    </button>
-                    <button
-                        onClick={() => setActiveTab("Electrical")}
-                        className={`flex-1 lg:flex-none px-4 sm:px-8 py-2.5 rounded-[10px] font-semibold text-sm transition-all duration-300 ${activeTab === "Electrical" ? "bg-[#2B3990] text-white" : "bg-white text-black border border-red"}`}
-                    >
-                        Electrical
-                    </button>
-                    <button
-                        onClick={() => setActiveTab("Lifelines")}
-                        className={`flex-1 lg:flex-none px-4 sm:px-8 py-2.5 rounded-[10px] font-semibold text-sm transition-all duration-300 ${activeTab === "Lifelines" ? "bg-[#2B3990] text-white" : "bg-white text-black border border-red"}`}
-                    >
-                        Lifelines
-                    </button>
+                    {["Safety", "Electrical", "Lifelines"].map((tab) => (
+                        <button
+                            key={tab}
+                            onClick={() => setActiveTab(tab)}
+                            className={`flex-1 lg:flex-none px-4 sm:px-8 py-2.5 rounded-[10px] font-semibold text-sm transition-all duration-300 ${activeTab === tab ? "bg-[#2B3990] text-white" : "bg-white text-black border border-red"}`}
+                        >
+                            {tab}
+                        </button>
+                    ))}
                 </div>
             </div>
 
-            <div className="product-slider relative pb-8 lg:pb-0">
-                <Slider {...settings}>
-                    {products.map((p) => (
-                        <div key={p.id} className="p-2 md:p-4 outline-none">
-                            <div className="bg-[#D9D9D94D]/30 space-y-4 p-4 rounded-[32px] flex flex-col items-center shadow shadow-black/10 hover:shadow-lg transition-shadow duration-300 h-full">
-                                <div className="relative w-full aspect-square overflow-hidden rounded-[32px]">
-                                    <Image
-                                        src={p.image}
-                                        alt={p.title}
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                                    />
+            <div className="product-slider relative pb-8 lg:pb-0 overflow-hidden">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={activeTab}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                    >
+                        <Slider {...settings}>
+                            {activeProducts.map((p) => (
+                                <div key={p.id} className="p-2 md:p-4 outline-none">
+                                    <div className="bg-[#D9D9D94D]/30 space-y-4 p-4 rounded-[32px] flex flex-col items-center shadow shadow-black/10 hover:shadow-lg transition-shadow duration-300 h-full">
+                                        <div className="relative w-full aspect-square overflow-hidden rounded-[32px]">
+                                            <Image
+                                                src={p.image}
+                                                alt={p.title}
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                            />
+                                        </div>
+                                        <h4 className="text-center text-lg font-bold">
+                                            {p.title}
+                                        </h4>
+                                        <button className="mb-4 bg-red hover:bg-blue text-white font-[600] px-8 py-4 rounded-full transition-all duration-300 hover:shadow-md leading-none">
+                                            Add To Cart
+                                        </button>
+                                    </div>
                                 </div>
-                                <h4 className="text-center text-lg font-bold">
-                                    {p.title}
-                                </h4>
-                                <button className="mb-4 bg-red hover:bg-blue text-white font-[600] px-8 py-4 rounded-full transition-all duration-300 hover:shadow-md leading-none">
-                                    Add To Cart
-                                </button>
-                            </div>
-                        </div>
-                    ))}
-                </Slider>
+                            ))}
+                        </Slider>
+                    </motion.div>
+                </AnimatePresence>
             </div>
 
             <div className="mt-16 md:mt-16 text-center">
@@ -136,6 +154,7 @@ const OurProducts = () => {
             <style jsx global>{`
                 .product-slider .slick-list {
                     margin: 0 -0.5rem;
+                    padding-bottom: 2rem;
                 }
                 @media (min-width: 768px) {
                     .product-slider .slick-list {
