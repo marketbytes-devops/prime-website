@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import DatePickerIcon from "@/components/Icons/DatePickerIcon";
 import blogsData from "@/data/blogs.json";
+import { useRouter } from "next/navigation";
 
 // Import images from assets
 import blog1 from "@/assets/images/Blog/blog-1.jpg";
@@ -24,7 +25,7 @@ const SampleNextArrow = (props) => {
     const { onClick } = props;
     return (
         <div
-            className="absolute bottom-[-70px] lg:bottom-auto lg:top-1/2 right-[30%] sm:right-[38%] md:right-[42%] lg:-right-12 z-10 lg:-translate-y-1/2 bg-[#D9D9D9]/30 hover:bg-gray-200 text-gray-500 rounded-full p-2 cursor-pointer transition-all duration-300 shadow-sm flex items-center justify-center"
+            className="absolute bottom-[-30px] lg:bottom-auto lg:top-1/2 right-[30%] sm:right-[38%] md:right-[42%] lg:-right-12 z-10 lg:-translate-y-1/2 bg-[#D9D9D9]/30 hover:bg-gray-200 text-gray-500 rounded-full p-2 cursor-pointer transition-all duration-300 shadow-sm flex items-center justify-center"
             onClick={onClick}
         >
             <MdChevronRight size={28} color="#000" />
@@ -36,7 +37,7 @@ const SamplePrevArrow = (props) => {
     const { onClick } = props;
     return (
         <div
-            className="absolute bottom-[-70px] lg:bottom-auto lg:top-1/2 left-[30%] sm:left-[38%] md:left-[42%] lg:-left-12 z-10 lg:-translate-y-1/2 bg-[#D9D9D9]/30 hover:bg-gray-200 text-gray-500 rounded-full p-2 cursor-pointer transition-all duration-300 shadow-sm flex items-center justify-center"
+            className="absolute bottom-[-30px] lg:bottom-auto lg:top-1/2 left-[30%] sm:left-[38%] md:left-[42%] lg:-left-12 z-10 lg:-translate-y-1/2 bg-[#D9D9D9]/30 hover:bg-gray-200 text-gray-500 rounded-full p-2 cursor-pointer transition-all duration-300 shadow-sm flex items-center justify-center"
             onClick={onClick}
         >
             <MdChevronLeft size={28} color="#000" />
@@ -45,6 +46,8 @@ const SamplePrevArrow = (props) => {
 }
 
 const BlogCard = ({ blog }) => {
+    const router = useRouter();
+
     return (
         <div className="p-2 md:p-4 outline-none h-full">
             <div className="bg-[#F4F4F4] space-y-4 p-2 rounded-[32px] flex flex-col items-center shadow shadow-black/10 hover:shadow-lg transition-shadow duration-300 h-full">
@@ -57,7 +60,7 @@ const BlogCard = ({ blog }) => {
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
-                <div className="py-2 px-4">
+                <div className="py-2 px-4 w-full flex flex-col flex-1">
                     <h4 className="text-left !text-lg md:!text-xl font-medium line-clamp-2 uppercase pb-4">
                         {blog.title}
                     </h4>
@@ -69,7 +72,7 @@ const BlogCard = ({ blog }) => {
 
                         <button
                             onClick={() => router.push(`/blog/${blog.id}`)}
-                            className="bg-red hover:bg-blue text-white font-[600] px-8 py-4 rounded-full transition-all duration-300 hover:shadow-md leading-none"
+                            className="flex items-center justify-center bg-red hover:bg-blue text-white font-[600] px-6 py-4 rounded-full transition-all duration-300 hover:shadow-md leading-none whitespace-nowrap"
                         >
                             Read More
                         </button>
