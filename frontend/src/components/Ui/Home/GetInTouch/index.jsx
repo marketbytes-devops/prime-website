@@ -7,7 +7,7 @@ import getInTouchImg from "@/assets/images/Form/get-in-touch.jpg";
 const GetInTouch = () => {
     return (
         <div className="container">
-            <div className="text-center mb-4 md:mb-10">
+            <div className="text-center mb-4 md:mb-10 mt-0 md:-mt-10">
                 <h2 className="mb-2 md:mb-6 block">
                     Get In Touch
                 </h2>
